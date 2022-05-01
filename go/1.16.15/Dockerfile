@@ -31,9 +31,10 @@ RUN curl -s https://download.docker.com/linux/static/stable/x86_64/docker-20.10.
   tar -C /usr/bin --strip-components 1 -xz
 
 # node
+# hadolint ignore=DL3008
 RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - && \
   apt-get update && apt-get -y --no-install-recommends install \
-  nodejs=16.14.2-deb-1nodesource1 \
+  nodejs \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # watchexec
