@@ -1,7 +1,5 @@
 FROM golang:1.18.1@sha256:5b75b529da0f2196ee8561a90e5b99aceee56e125c6ef09a3da4e32cf3cc6c20
 
-ENV DEVELOPMENT=true
-
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # development dependencies
