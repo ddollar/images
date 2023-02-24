@@ -1,0 +1,1 @@
+FROM node:19.7.0@sha256:d903b23148dccca63152cb2bdf6fdfa062842dcce49f0d45558ca06a8ab14598
