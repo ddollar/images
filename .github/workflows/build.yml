@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       images: ${{ steps.diff.outputs.images }}
+      platforms: linux/amd64,linux/arm64
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -69,6 +70,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: ${{ matrix.image }}
+          platforms: ${{ needs.changes.outputs.platforms }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
   push-dockerhub:
@@ -102,6 +104,7 @@ jobs:
         with:
           context: ${{ matrix.image }}
           tags: ${{ steps.tag.outputs.tag }}
+          platforms: ${{ needs.changes.outputs.platforms }}
           push: true
           cache-from: type=gha
           cache-to: type=gha,mode=max
@@ -137,6 +140,7 @@ jobs:
         with:
           context: ${{ matrix.image }}
           tags: ${{ steps.tag.outputs.tag }}
+          platforms: ${{ needs.changes.outputs.platforms }}
           push: true
           cache-from: type=gha
           cache-to: type=gha,mode=max
