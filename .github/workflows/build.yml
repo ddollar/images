@@ -71,7 +71,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: ${{ matrix.image }}
-          platforms: linux/amd64,linux/arm64,linux/arm64/v8
+          platforms: linux/amd64,linux/arm64
           provenance: false
           cache-from: type=gha
           cache-to: type=gha,mode=max
@@ -108,7 +108,7 @@ jobs:
         with:
           context: ${{ matrix.image }}
           tags: ${{ steps.tag.outputs.tag }}
-          platforms: linux/amd64,linux/arm64,linux/arm64/v8
+          platforms: linux/amd64,linux/arm64
           provenance: false
           push: true
           cache-from: type=gha
@@ -147,7 +147,7 @@ jobs:
         with:
           context: ${{ matrix.image }}
           tags: ${{ steps.tag.outputs.tag }}
-          platforms: linux/amd64,linux/arm64,linux/arm64/v8
+          platforms: linux/amd64,linux/arm64
           provenance: false
           push: true
           cache-from: type=gha
