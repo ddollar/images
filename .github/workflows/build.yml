@@ -72,7 +72,6 @@ jobs:
         with:
           context: ${{ matrix.image }}
           platforms: linux/amd64,linux/arm64
-          provenance: false
           cache-from: type=gha
           cache-to: type=gha,mode=max
   push-dockerhub:
@@ -109,7 +108,6 @@ jobs:
           context: ${{ matrix.image }}
           tags: ${{ steps.tag.outputs.tag }}
           platforms: linux/amd64,linux/arm64
-          provenance: false
           push: true
           cache-from: type=gha
           cache-to: type=gha,mode=max
@@ -148,7 +146,6 @@ jobs:
           context: ${{ matrix.image }}
           tags: ${{ steps.tag.outputs.tag }}
           platforms: linux/amd64,linux/arm64
-          provenance: false
           push: true
           cache-from: type=gha
           cache-to: type=gha,mode=max
