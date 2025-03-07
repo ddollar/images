@@ -1,7 +1,5 @@
 FROM ubuntu:22.04
 
-WORKDIR /usr/src
-
 ARG WHISPER_VERSION=2.4.0
 
 RUN \
@@ -41,6 +39,7 @@ RUN \
 	&& rm -rf /var/lib/apt/lists/*
 
 WORKDIR /
+VOLUME /data
 
 CMD ["wyoming-faster-whisper", "--model", "base", "--uri", "tcp://0.0.0.0:10300", "--language", "en", "--device", "cuda", "--data-dir", "/data"]
 
