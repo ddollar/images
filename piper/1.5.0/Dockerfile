@@ -4,6 +4,9 @@ ARG WYOMING_VERSION=1.5.0
 ARG PIPER_VERSION=1.2.0
 
 ENV PIP_BREAK_SYSTEM_PACKAGES=1
+
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 RUN \
 	apt-get update \
 	&& apt-get install -y --no-install-recommends \
