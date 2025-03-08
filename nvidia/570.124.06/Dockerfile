@@ -1,11 +1,10 @@
-FROM ubuntu:22.04@sha256:ed1544e454989078f5dec1bfdabd8c5cc9c48e0705d07b678ab6ae3fb61952d2
+FROM ghcr.io/ddollar/ubuntu:22.04@sha256:fb229359b55c732a1027a4bed498800ccf9fb0f486705922f7d95bf96bbb14a5
 
 ARG NVIDIA_VERSION=570.124.06-0ubuntu1
 
 RUN \
 	apt-get update \
 	&& apt-get install -y --no-install-recommends \
-	ca-certificates \
 	curl \
 	&& curl -s -L https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.1-1_all.deb \
 	-o /tmp/cuda-keyring.deb \
