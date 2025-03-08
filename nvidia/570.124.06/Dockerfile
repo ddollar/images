@@ -12,9 +12,7 @@ RUN \
 	&& apt-get update \
 	&& env DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
 	cuda-drivers=${NVIDIA_VERSION} \
-	cuda-toolkit-12-8 \
-	libcublas-12-8 \
-	libcudnn9-cuda-12 \
+	cuda-12-8 \
 	&& apt-get purge -y --auto-remove \
 	build-essential \
 	curl \
