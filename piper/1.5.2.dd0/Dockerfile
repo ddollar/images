@@ -17,11 +17,11 @@ RUN \
 	&& pip3 install --no-cache-dir -U \
 	setuptools==75.8.2 \
 	wheel==0.45.1 \
+	&& pip3 install --no-cache-dir "piper-tts==${PIPER_VERSION}" \
 	&& pip3 install --no-cache-dir \
 	"wyoming-piper @ https://github.com/ddollar/wyoming-piper/archive/refs/tags/v${WYOMING_VERSION}.tar.gz" \
 	&& rm -rf /var/lib/apt/lists/*
 
-RUN pip install "piper-tts==${PIPER_VERSION}"
 
 WORKDIR /
 VOLUME /data
