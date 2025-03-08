@@ -19,13 +19,12 @@ RUN \
 	wheel==0.45.1 \
 	&& pip3 install --no-cache-dir \
 	"wyoming-piper @ https://github.com/ddollar/wyoming-piper/archive/refs/tags/v${WYOMING_VERSION}.tar.gz" \
-	&& curl -L -s \
-	"https://github.com/rhasspy/piper/releases/download/v${PIPER_VERSION}/piper_amd64.tar.gz" \
-	| tar -zxvf - -C /usr/share \
 	&& rm -rf /var/lib/apt/lists/*
+
+RUN pip install "piper-tts==${PIPER_VERSION}"
 
 WORKDIR /
 VOLUME /data
 EXPOSE 10200
 
-CMD ["wyoming-piper", "--piper", "/usr/share/piper/piper", "--uri", "tcp://0.0.0.0:10200", "--voice", "en_US-amy-medium", "--data-dir", "/data", "--data-dir", "/usr/share/piper"]
+CMD ["wyoming-piper", "--piper", "/usr/local/bin/piper", "--uri", "tcp://0.0.0.0:10200", "--voice", "en_US-amy-medium", "--data-dir", "/data", "--data-dir", "/usr/share/piper"]
