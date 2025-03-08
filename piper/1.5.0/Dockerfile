@@ -1,4 +1,4 @@
-FROM ghcr.io/ddollar/nvidia:570.124.06@sha256:6d714e12fc9425bd40d5c8ff8c45053882bd585c690ec5e72763006cec99ad32
+FROM ghcr.io/ddollar/nvidia:570.124.06@sha256:7fb3ceb1142bb84cac7d0166cb9b77bd8fa52347ae35ec24b6b30ffb3e46d0c2
 
 ARG WYOMING_VERSION=1.5.0
 ARG PIPER_VERSION=1.2.0
@@ -24,4 +24,4 @@ RUN \
 	| tar -zxvf - -C /usr/share \
 	&& rm -rf /var/lib/apt/lists/*
 
-CMD ["wyoming-piper", "--piper", "/usr/share/piper/piper", "--uri", "tcp://0.0.0.0:10300", "--voice", "en_US-amy-medium", "--data-dir", "/data", "--data-dir", "/usr/share/piper"]
+CMD ["wyoming-piper", "--piper", "/usr/share/piper/piper", "--uri", "tcp://0.0.0.0:10200", "--voice", "en_US-amy-medium", "--data-dir", "/data", "--data-dir", "/usr/share/piper"]
