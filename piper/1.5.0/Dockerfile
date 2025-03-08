@@ -1,4 +1,4 @@
-FROM ghcr.io/ddollar/nvidia:570.124.06@sha256:7fb3ceb1142bb84cac7d0166cb9b77bd8fa52347ae35ec24b6b30ffb3e46d0c2
+FROM ghcr.io/ddollar/nvidia:570.124.06@sha256:82c17995f7b7aefba2808703d73caa790bd10f57cba339e1a3a360938ad52580
 
 ARG WYOMING_VERSION=1.5.0
 ARG PIPER_VERSION=1.2.0
