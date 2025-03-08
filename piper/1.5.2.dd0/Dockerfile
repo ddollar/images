@@ -24,4 +24,8 @@ RUN \
 	| tar -zxvf - -C /usr/share \
 	&& rm -rf /var/lib/apt/lists/*
 
+WORKDIR /
+VOLUME /data
+EXPOSE 10200
+
 CMD ["wyoming-piper", "--piper", "/usr/share/piper/piper", "--uri", "tcp://0.0.0.0:10200", "--voice", "en_US-amy-medium", "--data-dir", "/data", "--data-dir", "/usr/share/piper"]

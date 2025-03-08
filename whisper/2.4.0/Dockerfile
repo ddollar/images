@@ -22,6 +22,7 @@ RUN \
 
 WORKDIR /
 VOLUME /data
+EXPOSE 10300
 
 CMD ["wyoming-faster-whisper", "--model", "base", "--uri", "tcp://0.0.0.0:10300", "--language", "en", "--device", "cuda", "--data-dir", "/data"]
 

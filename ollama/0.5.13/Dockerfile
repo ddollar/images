@@ -8,4 +8,8 @@ FROM ghcr.io/ddollar/nvidia:570.124.06@sha256:7fb3ceb1142bb84cac7d0166cb9b77bd8f
 
 COPY --from=build /go/bin/ollama /usr/local/bin/ollama
 
+WORKDIR /
+VOLUME /root/.ollama
+EXPOSE 11434
+
 CMD ["ollama", "serve"]
