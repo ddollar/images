@@ -13,7 +13,4 @@ RUN \
 	&& env DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
 	cuda-drivers=${NVIDIA_VERSION} \
 	cuda-12-8 \
-	&& apt-get purge -y --auto-remove \
-	build-essential \
-	curl \
 	&& rm -rf /var/lib/apt/lists/*
