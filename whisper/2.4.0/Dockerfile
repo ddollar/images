@@ -1,4 +1,4 @@
-FROM ghcr.io/ddollar/nvidia:570.124.06@sha256:82c17995f7b7aefba2808703d73caa790bd10f57cba339e1a3a360938ad52580
+FROM ghcr.io/ddollar/nvidia:570.124.06@sha256:56e19b4a101ed893fae5419bf8146cbbb04cd2bce9f14596b444405c6a1093e1
 
 ARG WYOMING_VERSION=2.4.0
 
@@ -15,9 +15,6 @@ RUN \
 	wheel==0.45.1 \
 	&& pip3 install --no-cache-dir \
 	"wyoming-faster-whisper @ https://github.com/rhasspy/wyoming-faster-whisper/archive/refs/tags/v${WYOMING_VERSION}.tar.gz" \
-	&& apt-get purge -y --auto-remove \
-	build-essential \
-	python3-dev \
 	&& rm -rf /var/lib/apt/lists/*
 
 WORKDIR /
