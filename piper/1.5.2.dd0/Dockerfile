@@ -23,16 +23,12 @@ RUN \
 	wheel==0.45.1 \
 	&& pip3 install --no-cache-dir \
 	onnxruntime-gpu==1.21.0 \
+	&& curl -Ls https://github.com/rhasspy/piper/archive/${PIPER_COMMIT}.tar.gz | tar xz \
+	&& make -C piper-${PIPER_COMMIT} \
+	&& mv piper-${PIPER_COMMIT}/install /usr/share/piper \
 	&& pip3 install --no-cache-dir \
 	"wyoming-piper @ https://github.com/ddollar/wyoming-piper/archive/refs/tags/v${WYOMING_VERSION}.tar.gz" \
 	&& rm -rf /var/lib/apt/lists/*
-
-RUN \
-	curl -Ls https://github.com/rhasspy/piper/archive/${PIPER_COMMIT}.tar.gz | tar xz \
-	&& make -C piper-${PIPER_COMMIT}
-
-RUN \
-	mv piper-${PIPER_COMMIT}/install /usr/share/piper
 
 WORKDIR /
 VOLUME /data
