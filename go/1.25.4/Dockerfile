@@ -7,7 +7,6 @@ RUN apt-get update && apt-get -y --no-install-recommends install \
   bzip2 \
   curl \
   git \
-  software-properties-common \
   telnet \
   xz-utils \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
